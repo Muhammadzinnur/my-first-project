@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 CYBERPUNK 3D ANIMATION</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #000015, #000);
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .scene {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+        }
+
+        .cube {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, cyan, magenta);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(30deg) rotateY(30deg);
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.8);
+            filter: blur(2px);
+        }
+
+        .ring {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 6px solid rgba(0, 255, 255, 0.5);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(80deg);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+        }
+
+        .glow {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.5), transparent);
+            filter: blur(40px);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scene">
+        <div class="glow"></div>
+        <div class="ring"></div>
+        <div class="cube"></div>
+    </div>
+
+    <script>
+        gsap.from(".cube", { 
+            duration: 2, 
+            scale: 0, 
+            opacity: 0, 
+            ease: "elastic.out(1, 0.5)" 
+        });
+
+        gsap.to(".cube", { 
+            duration: 5, 
+            y: -70, 
+            repeat: -1, 
+            yoyo: true, 
+            ease: "sine.inOut"
+        });
+
+        gsap.to(".cube", {
+            duration: 4,
+            rotateX: 360,
+            rotateY: 360,
+            repeat: -1,
+            ease: "power1.inOut"
+        });
+
+        gsap.to(".glow", {
+            duration: 3,
+            opacity: 1,
+            scale: 1.2,
+            repeat: -1,
+            yoyo: true
+        });
+
+        gsap.to(".ring", {
+            duration: 6,
+            rotate: 360,
+            repeat: -1,
+            ease: "linear"
+        });
+
+        gsap.to(".cube", {
+            duration: 2,
+            boxShadow: "0 0 80px rgba(255, 0, 255, 0.9)",
+            filter: "blur(4px)",
+            repeat: -1,
+            yoyo: true
+        });
+    </script>
+
+</body>
+</html>

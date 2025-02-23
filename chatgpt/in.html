@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 7D ULTRA NEON ANIMATION</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #000010, #000);
+            overflow: hidden;
+            perspective: 2000px;
+        }
+
+        .scene {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+        }
+
+        .cube {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(20deg) rotateY(20deg);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.9);
+            filter: blur(3px);
+        }
+
+        .light {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.5), transparent);
+            filter: blur(40px);
+            z-index: -1;
+        }
+
+        .ring {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 8px solid rgba(0, 255, 255, 0.5);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(60deg);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.9);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scene">
+        <div class="light"></div>
+        <div class="ring"></div>
+        <div class="cube"></div>
+    </div>
+
+    <script>
+        gsap.from(".cube", { 
+            duration: 2, 
+            scale: 0, 
+            opacity: 0, 
+            ease: "elastic.out(1, 0.5)" 
+        });
+
+        gsap.to(".cube", { 
+            duration: 5, 
+            y: -80, 
+            repeat: -1, 
+            yoyo: true, 
+            ease: "sine.inOut"
+        });
+
+        gsap.to(".cube", {
+            duration: 6,
+            rotateX: 720,
+            rotateY: 720,
+            rotateZ: 360,
+            repeat: -1,
+            ease: "power1.inOut"
+        });
+
+        gsap.to(".light", {
+            duration: 3,
+            opacity: 1,
+            scale: 1.3,
+            repeat: -1,
+            yoyo: true
+        });
+
+        gsap.to(".ring", {
+            duration: 5,
+            rotate: 360,
+            repeat: -1,
+            ease: "linear"
+        });
+
+        gsap.to(".cube", {
+            duration: 2,
+            boxShadow: "0 0 100px rgba(255, 0, 255, 0.9)",
+            filter: "blur(5px)",
+            repeat: -1,
+            yoyo: true
+        });
+    </script>
+
+</body>
+</html>
